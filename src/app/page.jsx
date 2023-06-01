@@ -2,24 +2,24 @@
 
 import { GlobalStyle } from '../styles/globalStyles'
 
-import { api } from '@/services/api'
-import { useEffect, useState } from 'react'
-import { Container, FilterBox, Header, BoxList, List, BoxMenuTitle } from './page.styles'
+import {
+  Container,
+  Header,
+  BoxList,
+  BoxMenuTitle,
+  ImageBall,
+  Footer,
+  Linkedin,
+  GitHub,
+  Nav
+} from './page.styles'
 import Select from '@/components/Select/Select'
 import Options from '@/components/Options/Options'
 
+import Ball from '../assets/ball.png'
+
 export default function Home() {
-  const [countries, setCountries] = useState()
 
-  /*  useEffect(() => {
-    async function teste() {
-      const { data: { response } } = await api.get('countries')
-      setCountries(response)
-
-    }
-    teste()
-
-  }, [])  */
 
   return (
     <>
@@ -27,35 +27,37 @@ export default function Home() {
 
       <Header>
         <h1>MEU TIME</h1>
+        <ImageBall src={Ball} alt='bola' />
       </Header>
 
       <Container>
-        <FilterBox>
-          <Select
-            name='coutrie_id'
-            text="Selecione um País"
-            options={countries}
-          />
 
-          <Select
-            name='league_id'
-            text="Selecione um Liga"
-            options={countries}
-          />
+        {/* Filtros de busca */}
 
+        <Select />
 
-        </FilterBox>
-
+        {/* Lista do Time */}
         <BoxList>
           <BoxMenuTitle>
             {/* <img src='' alt='' /> */}
             <option>Time</option>
           </BoxMenuTitle>
 
-          <Options/>
+          <Options />
 
         </BoxList>
       </Container>
+
+      <Footer>
+        <Nav>
+            <p>Desenvolvido por &copy; Victor Santos</p> 
+            <p>
+            <a href='https://www.linkedin.com/in/victor-santos-de-menezes/' target='_blank'><Linkedin /></a>
+
+            <a href='https://github.com/victorSmenezes' target='_blank'><GitHub/></a>
+            </p>
+        </Nav>
+      </Footer>
     </>
   )
 }

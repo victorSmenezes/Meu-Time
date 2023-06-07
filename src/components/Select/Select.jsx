@@ -4,7 +4,29 @@ import { useEffect, useState } from 'react'
 
 export default function Select() {
 
-  /* { name, code, , options, handleOnChange } */
+   // Funções para pegar os valores dos select's e usar como parametros nas requisições
+   const [valueOfCountrie, setValueOfCountrie] = useState()
+  
+   function taketheValueOfCountrie(e) {
+     setValueOfCountrie(e.target.value) 
+    
+  }
+
+  function taketheValueOfLeague(e) {
+    let valueOfLeague = e.target.value
+
+    console.log(valueOfLeague)
+  }
+
+  function taketheValueOfSeason(e) {
+    let valueOfSeason = e.target.value
+
+    console.log(valueOfSeason)
+  }
+
+
+
+  //Requisição API
   const [countries, setCountries] = useState()
   const [seasons, setSeasons] = useState()
   const [leagues, setLeagues] = useState()
@@ -19,9 +41,22 @@ export default function Select() {
 
   }, [])
 
+  
+  useEffect(() => {
+    async function Listleagues() {
+      const { data: { response } } = await api.get(`leagues?country=${valueOfCountrie}`)
+    
+      
+      console.log(setLeagues(response))
+      
+    }
+    Listleagues()
+    
+  }, []) 
+  
   useEffect(() => {
     async function ListSeasons() {
-      const { data: { response } } = await api.get('leagues/seasons')
+      const { data: { response } } = await api.get(`leagues/seasons`)
       setSeasons(response)
 
     }
@@ -29,60 +64,30 @@ export default function Select() {
 
   }, [])
 
-  useEffect(() => {
-    async function Listleagues() {
-      const { data: { response } } = await api.get(`leagues?season=${numberOfSeason}&country=${coutrieForLeague}`)
-
-
-      console.log(setLeagues(response))
-
-    }
-    Listleagues()
-
-  }, []) 
-
-
-
- /*  let valueSelect = 
-  let numberOfSeason = 
-  let coutrieForLeague =  
-
-  function handleOnChange(e) {
-     valueSelect = e.target.value
-
-    if(valueSelect.length == 4){
-      valueSelect = numberOfSeason
-     console.log(numberOfSeason+'1')
-    }else{
-      valueSelect = coutrieForLeague
-      console.log(coutrieForLeague.toLowerCase())
-    }
-  }*/
 
   return (
     <FilterBox>
       <Filter
-        onChange={handleOnChange}>
+        onChange={taketheValueOfCountrie}>
         <option>Selecione um país</option>
         {countries?.map((countrie) => {
           return <option key={countrie.name}>{countrie.name}</option>
         })}
       </Filter>
 
-      <Filter
-    onChange={handleOnChange}
-        options={countries}>
-        <option>Selecione uma Temporada</option>
-        {seasons?.map((season) => {
-          return <option key={season}>{season}</option>
+      <Filter 
+      onChange={taketheValueOfLeague}>
+        <option>Selecione um Líga</option>
+        {leagues?.map((league) => {
+          return <option key={league.league.id}>{league.league.name}</option>
         })}
       </Filter>
 
-      <Filter 
-      onChange={handleOnChange}>
-        <option>Selecione um Líga</option>
-        {leagues?.map((league) => {
-          return <option key={league.id}>{league.name}</option>
+      <Filter
+    onChange={taketheValueOfSeason}>
+        <option>Selecione uma Temporada</option>
+        {seasons?.map((season) => {
+          return <option key={season}>{season}</option>
         })}
       </Filter>
     </FilterBox>

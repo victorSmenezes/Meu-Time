@@ -14,7 +14,7 @@ export const FilterBox = styled.div`
   margin-left: 90px;
 `
 export const Filter = styled.select`
-  width: 160px;
+  width: 85%;
   height: 35px;
   margin-bottom: 10px;
   border-radius: 30px;

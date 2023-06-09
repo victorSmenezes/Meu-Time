@@ -2,28 +2,28 @@ import { Filter, FilterBox } from "./styles";
 import { api } from '@/services/api'
 import { useEffect, useState } from 'react'
 
+
+// Funções para pegar os valores dos select's e usar como parametros nas requisições
+export function taketheValueOfLeague(e) {
+  let valueOfLeague = e
+  return valueOfLeague
+}
+
+export function taketheValueOfSeason(e) {
+  let valueOfSeason = e
+  return valueOfSeason
+}
+
+
 export default function Select() {
 
-   // Funções para pegar os valores dos select's e usar como parametros nas requisições
-   const [valueOfCountrie, setValueOfCountrie] = useState()
-  
-   function taketheValueOfCountrie(e) {
-     setValueOfCountrie(e.target.value) 
-    
+  // Função para pegar os valores dos select's e usar como parametros nas requisições
+  const [valueOfCountrie, setValueOfCountrie] = useState()
+
+  function taketheValueOfCountrie(e) {
+    setValueOfCountrie(e.target.value)
+
   }
-
-  function taketheValueOfLeague(e) {
-    let valueOfLeague = e.target.value
-
-    console.log(valueOfLeague)
-  }
-
-  function taketheValueOfSeason(e) {
-    let valueOfSeason = e.target.value
-
-    console.log(valueOfSeason)
-  }
-
 
 
   //Requisição API
@@ -41,19 +41,18 @@ export default function Select() {
 
   }, [])
 
-  
+
   useEffect(() => {
     async function Listleagues() {
       const { data: { response } } = await api.get(`leagues?country=${valueOfCountrie}`)
-    
-      
-      console.log(setLeagues(response))
-      
+
+      setLeagues(response)
+
     }
     Listleagues()
-    
-  }, []) 
-  
+
+  }, [valueOfCountrie])
+
   useEffect(() => {
     async function ListSeasons() {
       const { data: { response } } = await api.get(`leagues/seasons`)
@@ -63,7 +62,6 @@ export default function Select() {
     ListSeasons()
 
   }, [])
-
 
   return (
     <FilterBox>
@@ -75,8 +73,8 @@ export default function Select() {
         })}
       </Filter>
 
-      <Filter 
-      onChange={taketheValueOfLeague}>
+      <Filter
+        onChange={(e) => taketheValueOfLeague(e)}>
         <option>Selecione um Líga</option>
         {leagues?.map((league) => {
           return <option key={league.league.id}>{league.league.name}</option>
@@ -84,7 +82,7 @@ export default function Select() {
       </Filter>
 
       <Filter
-    onChange={taketheValueOfSeason}>
+        onChange={(e) => taketheValueOfSeason(e)}>
         <option>Selecione uma Temporada</option>
         {seasons?.map((season) => {
           return <option key={season}>{season}</option>

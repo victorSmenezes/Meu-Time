@@ -17,6 +17,7 @@ import Select from '@/components/Select/Select'
 import Options from '@/components/Options/Options'
 
 import Ball from '../assets/ball.png'
+import Teams from '@/components/Teams/Teams'
 
 export default function Home() {
 
@@ -40,7 +41,7 @@ export default function Home() {
         <BoxList>
           <BoxMenuTitle>
             {/* <img src='' alt='' /> */}
-            <option>Time</option>
+            <Teams />
           </BoxMenuTitle>
 
           <Options />

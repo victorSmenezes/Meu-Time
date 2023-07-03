@@ -1,93 +1,85 @@
-import { Filter, FilterBox } from "./styles";
-import { api } from '@/services/api'
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
+import { api } from '@/services/api';
 
-// Funções para pegar os valores dos select's e usar como parametros nas requisições
-export function taketheValueOfLeague(e) {
-  let valueOfLeague = e
-  return valueOfLeague
-}
-
-export function taketheValueOfSeason(e) {
-  let valueOfSeason = e
-  return valueOfSeason
-}
-
+import { Filter, FilterBox } from './styles';
 
 export default function Select() {
+  // Funções para pegar os valores dos select's e usar como parametros nas requisições
+  const [valueOfCountrie, setValueOfCountrie] = useState();
 
-  // Função para pegar os valores dos select's e usar como parametros nas requisições
-  const [valueOfCountrie, setValueOfCountrie] = useState()
-
-  function taketheValueOfCountrie(e) {
-    setValueOfCountrie(e.target.value)
-
+  function taketheValueOfLeague(e) {
+    const valueOfLeague = e.target.value;
+    return valueOfLeague;
   }
 
+  function taketheValueOfSeason(e) {
+    const valueOfSeason = e.target.value;
+    return valueOfSeason;
+  }
 
-  //Requisição API
-  const [countries, setCountries] = useState()
-  const [seasons, setSeasons] = useState()
-  const [leagues, setLeagues] = useState()
+  function taketheValueOfCountrie(e) {
+    setValueOfCountrie(e.target.value);
+  }
+
+  // Requisição API
+  const [countries, setCountries] = useState();
+  const [seasons, setSeasons] = useState();
+  const [leagues, setLeagues] = useState();
 
   useEffect(() => {
     async function ListCountries() {
-      const { data: { response } } = await api.get('countries')
-      setCountries(response)
-
+      const {
+        data: { response }
+      } = await api.get('countries');
+      setCountries(response);
     }
-    ListCountries()
-
-  }, [])
-
+    ListCountries();
+  }, []);
 
   useEffect(() => {
     async function Listleagues() {
-      const { data: { response } } = await api.get(`leagues?country=${valueOfCountrie}`)
+      const {
+        data: { response }
+      } = await api.get(`leagues?country=${valueOfCountrie}`);
 
-      setLeagues(response)
-
+      setLeagues(response);
     }
-    Listleagues()
-
-  }, [valueOfCountrie])
+    Listleagues();
+  }, [valueOfCountrie]);
 
   useEffect(() => {
     async function ListSeasons() {
-      const { data: { response } } = await api.get(`leagues/seasons`)
-      setSeasons(response)
-
+      const {
+        data: { response }
+      } = await api.get(`leagues/seasons`);
+      setSeasons(response);
     }
-    ListSeasons()
-
-  }, [])
+    ListSeasons();
+  }, []);
 
   return (
     <FilterBox>
-      <Filter
-        onChange={taketheValueOfCountrie}>
+      <Filter onChange={taketheValueOfCountrie}>
         <option>Selecione um país</option>
         {countries?.map((countrie) => {
-          return <option key={countrie.name}>{countrie.name}</option>
+          return <option key={countrie.name}>{countrie.name}</option>;
         })}
       </Filter>
 
-      <Filter
-        onChange={(e) => taketheValueOfLeague(e)}>
+      <Filter onChange={(e) => taketheValueOfLeague(e)}>
         <option>Selecione um Líga</option>
         {leagues?.map((league) => {
-          return <option key={league.league.id}>{league.league.name}</option>
+          return <option key={league.league.id}>{league.league.name}</option>;
         })}
       </Filter>
 
-      <Filter
-        onChange={(e) => taketheValueOfSeason(e)}>
+      <Filter onChange={(e) => taketheValueOfSeason(e)}>
         <option>Selecione uma Temporada</option>
         {seasons?.map((season) => {
-          return <option key={season}>{season}</option>
+          return <option key={season}>{season}</option>;
         })}
       </Filter>
     </FilterBox>
-  )
+  );
 }

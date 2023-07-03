@@ -1,9 +1,9 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const FilterBox = styled.div`
   width: 200px;
   height: 190px;
-  background: #D9D9D9;
+  background: #d9d9d9;
   border-radius: 25px;
   align-items: center;
   display: flex;
@@ -12,7 +12,7 @@ export const FilterBox = styled.div`
   flex-wrap: wrap;
   margin-top: 10px;
   margin-left: 90px;
-`
+`;
 export const Filter = styled.select`
   width: 85%;
   height: 35px;
@@ -21,4 +21,4 @@ export const Filter = styled.select`
   text-align: center;
   cursor: pointer;
   font-size: 11px;
-`
+`;

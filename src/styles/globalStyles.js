@@ -1,12 +1,11 @@
-import { createGlobalStyle } from "styled-components";
-
-import { Merriweather_Sans as Merriweather } from 'next/font/google'
+import { Merriweather_Sans as Merriweather } from 'next/font/google';
+import { createGlobalStyle } from 'styled-components';
 
 const merriweather = Merriweather({
   weight: ['400', '700'],
   subsets: ['latin'],
   variable: '--font-merriweather'
-}); 
+});
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -22,4 +21,4 @@ export const GlobalStyle = createGlobalStyle`
         width: 100vw;
         height: 100vh;
     }
-`
+`;

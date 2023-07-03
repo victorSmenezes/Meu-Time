@@ -1,8 +1,9 @@
-import styled from "styled-components";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown } from 'react-icons/md';
+
+import styled from 'styled-components';
 
 export const TitleOptions = styled.button`
-  background: #7B7B7B;
+  background: #7b7b7b;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,15 +16,15 @@ export const TitleOptions = styled.button`
   cursor: pointer;
   padding-left: 5px;
   font-size: 13px;
-`
+`;
 
 export const Content = styled.div`
   font-size: 12px;
   font-weight: 400;
   margin-bottom: 20px;
-`
+`;
 export const ArrowDown = styled(MdKeyboardArrowDown)`
   width: 19px;
   height: 19px;
   cursor: pointer;
-`
+`;

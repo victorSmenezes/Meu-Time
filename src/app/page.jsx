@@ -1,8 +1,7 @@
 'use client';
 
+import Filters from '@/components/Filters/Filters';
 import Options from '@/components/Options/Options';
-import Select from '@/components/Select/Select';
-import Teams from '@/components/Teams/Teams';
 
 import Ball from '../assets/ball.png';
 import { GlobalStyle } from '../styles/globalStyles';
@@ -32,17 +31,9 @@ export default function Home() {
       <Container>
         {/* Filtros de busca */}
 
-        <Select />
-
-        {/* Lista do Time */}
+        <Filters />
 
         <BoxList>
-          <BoxMenuTitle>
-            {/* <img src='' alt='' /> */}
-
-            <Teams />
-          </BoxMenuTitle>
-
           <Options />
         </BoxList>
       </Container>

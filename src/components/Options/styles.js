@@ -2,7 +2,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import styled from 'styled-components';
 
-export const TitleOptions = styled.button`
+export const TitleOptions = styled.div`
   background: #7b7b7b;
   display: flex;
   justify-content: space-between;

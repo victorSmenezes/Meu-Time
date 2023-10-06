@@ -5,12 +5,10 @@ export const FilterBox = styled.div`
   height: 190px;
   background: #d9d9d9;
   border-radius: 25px;
-  align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 10px;
   margin-left: 90px;
 `;
 export const Filter = styled.select`

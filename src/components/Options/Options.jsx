@@ -1,12 +1,22 @@
+import { useState } from 'react';
+
 import { Content, TitleOptions, ArrowDown } from './styles';
 
 export default function Options() {
+  const [modal, setModal] = useState(false);
+
+  function OpenModal() {
+    setModal(true);
+  }
+
   return (
     <>
       <TitleOptions>
-        Jogadores <ArrowDown />
+        <h3>
+          Jogadores <ArrowDown />
+        </h3>
+        <Content>Jogador1</Content>
       </TitleOptions>
-      <Content>Jogador1</Content>
 
       <TitleOptions>
         Formação mais usada na temporada <ArrowDown />

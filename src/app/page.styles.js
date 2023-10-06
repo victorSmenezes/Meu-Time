@@ -1,5 +1,3 @@
-'use client';
-
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa';
 
 import Image from 'next/image';
@@ -27,8 +25,6 @@ export const ImageBall = styled(Image)`
 export const Container = styled.div`
   display: flex;
   margin-top: 50px;
-  margin-right: 100px;
-  justify-content: space-evenly;
 `;
 
 export const BoxList = styled.div`
@@ -36,18 +32,6 @@ export const BoxList = styled.div`
   height: auto;
   background: #d9d9d9;
   border-radius: 3px;
-`;
-
-export const BoxMenuTitle = styled.select`
-  background: #8b8b8b;
-  width: 100%;
-  height: 36px;
-  border-radius: 3px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin-bottom: 38px;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
 `;
 
 export const Footer = styled.footer`

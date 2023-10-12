@@ -9,7 +9,6 @@ import {
   Container,
   Header,
   BoxList,
-  BoxMenuTitle,
   ImageBall,
   Footer,
   Linkedin,
@@ -18,6 +17,12 @@ import {
 } from './page.styles';
 
 export default function Home() {
+  <link
+    rel="icon"
+    href="/icon?<generated>"
+    type="image/<generated>"
+    sizes="<generated>"
+  />;
   return (
     <>
       <GlobalStyle />

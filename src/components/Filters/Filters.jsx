@@ -21,11 +21,8 @@ export default function Filters() {
   }
 
   function takeTheValueOfLeague(e) {
-    setValueOfLeague(e);
-  }
-
-  function takeTheValueOfLeagueId(league) {
-    setValueOfLeagueId(league);
+    setValueOfLeague(e.target.value);
+    setValueOfLeagueId(e.target.options[e.target.selectedIndex].id);
   }
 
   function takeTheValueOfSeason(e) {
@@ -39,6 +36,7 @@ export default function Filters() {
       } = await api.get('countries');
       setCountries(response);
     }
+
     async function ListSeasons() {
       const {
         data: { response }
@@ -48,7 +46,6 @@ export default function Filters() {
 
       ListCountries();
       setSeasons(response);
-      /* console.log(setSeasons(response)); */
     }
     ListSeasons();
   }, []);
@@ -60,30 +57,25 @@ export default function Filters() {
       } = await api.get(`leagues?country=${valueOfCountrie}`);
 
       setLeagues(response);
-      /* console.log(response); */
     }
     Listleagues();
   }, [valueOfCountrie]);
 
-  console.log(valueOfLeagueId);
   return (
     <>
       <FilterBox>
         <Filter onChange={takeTheValueOfCountrie}>
-          <option>Selecione um país</option>
+          <option value="">Selecione um país</option>
           {countries?.map((countrie) => {
             return <option key={countrie.name}>{countrie.name}</option>;
           })}
         </Filter>
 
-        <Filter>
-          <option onChange={takeTheValueOfLeague}>Selecione um Líga</option>
+        <Filter id={valueOfLeagueId} onChange={takeTheValueOfLeague}>
+          <option value="">Selecione um Líga</option>
           {leagues?.map((league) => {
             return (
-              <option
-                onChange={takeTheValueOfLeagueId(league.league.id)}
-                key={league.league.id}
-              >
+              <option id={league.league.id} key={league.league.id}>
                 {league.league.name}
               </option>
             );

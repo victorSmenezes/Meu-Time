@@ -1,37 +1,53 @@
 import { useEffect, useState } from 'react';
 
+import Image from 'next/image';
 import { api } from '@/services/api';
 
 import { BoxOfTeams, FilterTeams, IconWarning, Warning } from './styles';
 
 export default function Team({ Season, League }) {
-  const [listOfTeams, setListOfTeams] = useState(null);
-  /* console.log(League); */
-  /* useEffect(() => {
+  const [teams, setTeams] = useState([]);
+
+  console.log(League);
+
+  useEffect(() => {
     async function RequisitionOfTeams() {
       try {
-        const response = await api.get(
-          `teams?league=${League.id}&season=${Season}`
-        );
+        const {
+          data: { response }
+        } = await api.get(`teams?league=${League}&season=${Season}`);
 
-        setListOfTeams(response);
+        setTeams(response);
+        console.log(response);
       } catch (error) {
         console.error('Erro ao buscar os times:', error);
       }
     }
 
     RequisitionOfTeams();
-  }, [League, Season]); */
-  console.log(League);
+  }, [League && Season]);
+
   return (
     <BoxOfTeams>
+      <h4>Times</h4>
+      <hr />
       <FilterTeams>
-        <option>Times</option>
-        {/* {Season && League
-        ? listOfTeams?.map((team) => {
-            return <option key={team.id}>{team.name}</option>;
-          })
-        : 'Defina todas as opções de filtro para aparecer a lista de times.'} */}
+        {teams?.map((team) => {
+          return (
+            <>
+              <li key={team.team.id}>
+                {team.team.name}{' '}
+                <Image
+                  src={team.team.logo}
+                  alt="team-logo"
+                  width={35}
+                  height={30}
+                />
+              </li>
+              <hr />
+            </>
+          );
+        })}
       </FilterTeams>
 
       <Warning>

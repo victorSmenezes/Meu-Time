@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
+// eslint-disable-next-line import-helpers/order-imports
 import { api } from '@/services/api';
 
 import { BoxOfTeams, FilterTeams, IconWarning, Warning } from './styles';

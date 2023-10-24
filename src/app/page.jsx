@@ -8,7 +8,6 @@ import { GlobalStyle } from '../styles/globalStyles';
 import {
   Container,
   Header,
-  BoxList,
   ImageBall,
   Footer,
   Linkedin,
@@ -34,13 +33,9 @@ export default function Home() {
       </Header>
 
       <Container>
-        {/* Filtros de busca */}
-
         <Filters />
 
-        <BoxList>
-          <Options />
-        </BoxList>
+        <Options />
       </Container>
 
       <Footer>

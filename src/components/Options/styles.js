@@ -2,6 +2,13 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import styled from 'styled-components';
 
+export const BoxList = styled.div`
+  width: 60em;
+  height: fit-content;
+  background: #d9d9d9;
+  border-radius: 3px;
+`;
+
 export const BoxOptions = styled.div`
   background: #7b7b7b;
   display: flex;

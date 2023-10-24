@@ -27,13 +27,6 @@ export const Container = styled.div`
   margin-top: 50px;
 `;
 
-export const BoxList = styled.div`
-  width: 60em;
-  height: auto;
-  background: #d9d9d9;
-  border-radius: 3px;
-`;
-
 export const Footer = styled.footer`
   width: 100%;
   height: 31px;

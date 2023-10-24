@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Content, BoxOptions, ArrowDown, Title } from './styles';
+import { Content, BoxOptions, ArrowDown, Title, BoxList } from './styles';
 
 export default function Options() {
   const [modalPlayers, setModalPlayers] = useState(false);
@@ -9,7 +9,7 @@ export default function Options() {
   const [modalNumberOfGoals, setModalNumberOfGoal] = useState(false);
 
   return (
-    <>
+    <BoxList>
       <BoxOptions>
         <Title onClick={() => setModalPlayers(true)}>Jogadores</Title>
         <ArrowDown
@@ -55,6 +55,6 @@ export default function Options() {
       {modalNumberOfGoals && (
         <Content setModalNumberOfGoal={setModalNumberOfGoal}>Gols1</Content>
       )}
-    </>
+    </BoxList>
   );
 }

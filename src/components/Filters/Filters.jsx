@@ -1,6 +1,9 @@
+/* eslint-disable no-sequences */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-shadow */
 import { useEffect, useState } from 'react';
 
-import { api } from '@/services/api';
+import { ListCountries, ListSeasons, Listleagues } from '@/services/getData';
 
 import Team from '../Teams/Team';
 import { Filter, FilterBox } from './styles';
@@ -16,6 +19,26 @@ export default function Filters() {
   const [valueOfSeason, setValueOfSeason] = useState();
   const [valueOfLeagueId, setValueOfLeagueId] = useState();
 
+  useEffect(() => {
+    async function getDatas() {
+      Promise.all([ListCountries(), ListSeasons()])
+        .then(([countries, seasons]) => {
+          setCountries(countries), setSeasons(seasons);
+        })
+        .catch((err) => console.error(err));
+    }
+
+    getDatas();
+  }, []);
+
+  useEffect(() => {
+    async function getDataLeagues() {
+      setLeagues(await Listleagues(valueOfCountrie));
+    }
+
+    getDataLeagues();
+  }, [valueOfCountrie]);
+
   function takeTheValueOfCountrie(e) {
     setValueOfCountrie(e.target.value);
   }
@@ -28,38 +51,6 @@ export default function Filters() {
   function takeTheValueOfSeason(e) {
     setValueOfSeason(e.target.value);
   }
-
-  useEffect(() => {
-    async function ListCountries() {
-      const {
-        data: { response }
-      } = await api.get('countries');
-      setCountries(response);
-    }
-
-    async function ListSeasons() {
-      const {
-        data: { response }
-      } = await api.get(`leagues/seasons`, {
-        results: 10
-      });
-
-      ListCountries();
-      setSeasons(response);
-    }
-    ListSeasons();
-  }, []);
-
-  useEffect(() => {
-    async function Listleagues() {
-      const {
-        data: { response }
-      } = await api.get(`leagues?country=${valueOfCountrie}`);
-
-      setLeagues(response);
-    }
-    Listleagues();
-  }, [valueOfCountrie]);
 
   return (
     <>

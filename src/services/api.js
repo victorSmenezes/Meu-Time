@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const api = axios.create({
+const api = axios.create({
   baseURL: 'https://v3.football.api-sports.io/',
   method: 'GET',
   headers: {
@@ -8,3 +8,5 @@ export const api = axios.create({
     'x-rapidapi-host': 'v3.football.api-sports.io'
   }
 });
+
+export default api;

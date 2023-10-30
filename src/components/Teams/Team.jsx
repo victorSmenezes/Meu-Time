@@ -1,32 +1,21 @@
+/* eslint-disable import-helpers/order-imports */
 import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
-// eslint-disable-next-line import-helpers/order-imports
-import { api } from '@/services/api';
+import { RequisitionOfTeams } from '@/services/getData';
 
 import { BoxOfTeams, FilterTeams, IconWarning, Warning } from './styles';
 
 export default function Team({ Season, League }) {
   const [teams, setTeams] = useState([]);
 
-  console.log(League);
-
   useEffect(() => {
-    async function RequisitionOfTeams() {
-      try {
-        const {
-          data: { response }
-        } = await api.get(`teams?league=${League}&season=${Season}`);
-
-        setTeams(response);
-        console.log(response);
-      } catch (error) {
-        console.error('Erro ao buscar os times:', error);
-      }
+    async function getDataTeams() {
+      setTeams(await RequisitionOfTeams(League, Season));
     }
 
-    RequisitionOfTeams();
-  }, [League && Season]);
+    getDataTeams();
+  }, [League, Season]);
 
   return (
     <BoxOfTeams>

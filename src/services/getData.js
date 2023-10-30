@@ -2,27 +2,52 @@ import api from '@/services/api';
 
 // Filters requests
 export async function ListCountries() {
-  const {
-    data: { response }
-  } = await api.get('countries');
+  try {
+    const {
+      data: { response }
+    } = await api.get('countries');
 
-  return response;
+    return response;
+  } catch (error) {
+    console.error('Erro ao buscar os países:', error);
+  }
 }
 
 export async function ListSeasons() {
-  const {
-    data: { response }
-  } = await api.get(`leagues/seasons`, {
-    results: 10
-  });
+  try {
+    const {
+      data: { response }
+    } = await api.get(`leagues/seasons`, {
+      results: 10
+    });
 
-  return response;
+    return response;
+  } catch (error) {
+    console.error('Erro ao buscar as temporadas:', error);
+  }
 }
 
 export async function Listleagues(valueOfCountrie) {
-  const {
-    data: { response }
-  } = await api.get(`leagues?country=${valueOfCountrie}`);
+  try {
+    const {
+      data: { response }
+    } = await api.get(`leagues?country=${valueOfCountrie}`);
 
-  return response;
+    return response;
+  } catch (error) {
+    console.error('Erro ao buscar as ligas:', error);
+  }
+}
+
+// Team request
+export async function RequisitionOfTeams(League, Season) {
+  try {
+    const {
+      data: { response }
+    } = await api.get(`teams?league=${League}&season=${Season}`);
+
+    return response;
+  } catch (error) {
+    console.error('Erro ao buscar os times:', error);
+  }
 }

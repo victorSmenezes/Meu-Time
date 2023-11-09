@@ -2,9 +2,7 @@
 
 import Filters from '@/components/Filters/Filters';
 import Options from '@/components/Options/Options';
-
 import Ball from '../assets/ball.png';
-import { GlobalStyle } from '../styles/globalStyles';
 import {
   Container,
   Header,
@@ -14,6 +12,7 @@ import {
   GitHub,
   Nav
 } from './page.styles';
+import Team from '@/components/Teams/Team';
 
 export default function Home() {
   <link
@@ -24,8 +23,6 @@ export default function Home() {
   />;
   return (
     <>
-      <GlobalStyle />
-
       <Header>
         <h1>MEU TIME</h1>
 
@@ -34,7 +31,7 @@ export default function Home() {
 
       <Container>
         <Filters />
-
+        <Team />
         <Options />
       </Container>
 

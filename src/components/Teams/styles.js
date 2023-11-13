@@ -64,11 +64,7 @@ export const FilterTeams = styled.ul`
     cursor: pointer;
 
     &:hover {
-      background: #9b9b9b;
-    }
-
-    &:active {
-      background: #c9c9c9;
+      filter: drop-shadow(0 0 0.2rem #000);
     }
 
     img {

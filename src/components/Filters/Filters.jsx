@@ -1,11 +1,12 @@
 /* eslint-disable no-sequences */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-shadow */
+
 import { useEffect, useState } from 'react';
 
+import { useParamsContext } from '@/context/Params';
 import { ListCountries, ListSeasons, Listleagues } from '@/services/getData';
 
-import Team from '../Teams/Team';
 import { Filter, FilterBox } from './styles';
 
 export default function Filters() {
@@ -18,6 +19,13 @@ export default function Filters() {
   const [valueOfLeague, setValueOfLeague] = useState();
   const [valueOfSeason, setValueOfSeason] = useState();
   const [valueOfLeagueId, setValueOfLeagueId] = useState();
+
+  let { 
+    setParamsCountry, 
+    setParamsLeague, 
+    setParamsLeagueId,
+    setParamSeason 
+  } = useParamsContext();
 
   useEffect(() => {
     async function getDatas() {
@@ -41,15 +49,19 @@ export default function Filters() {
 
   function takeTheValueOfCountrie(e) {
     setValueOfCountrie(e.target.value);
-  }
+    setParamsCountry(e.target.value)
+    }
 
   function takeTheValueOfLeague(e) {
     setValueOfLeague(e.target.value);
     setValueOfLeagueId(e.target.options[e.target.selectedIndex].id);
+    setParamsLeagueId(e.target.options[e.target.selectedIndex].id)
+    setParamsLeague(e.target.value)
   }
 
   function takeTheValueOfSeason(e) {
     setValueOfSeason(e.target.value);
+    setParamSeason(e.target.value)
   }
 
   return (
@@ -80,8 +92,6 @@ export default function Filters() {
           })}
         </Filter>
       </FilterBox>
-
-      <Team Season={valueOfSeason} League={valueOfLeagueId} />
     </>
   );
 }

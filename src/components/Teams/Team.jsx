@@ -5,18 +5,20 @@ import Image from 'next/image';
 import { RequisitionOfTeams } from '@/services/getData';
 
 import { BoxOfTeams, FilterTeams, IconWarning, Warning } from './styles';
+import { useParamsContext } from '@/context/Params';
 
-export default function Team({ Season, League }) {
-  const [teams, setTeams] = useState([]);
+export default function Team() {
+  const [teams, setTeams] = useState();
+
+  let { paramsLeagueId, paramSeason } = useParamsContext()
 
   useEffect(() => {
     async function getDataTeams() {
-      setTeams(await RequisitionOfTeams(League, Season));
+      setTeams(await RequisitionOfTeams(paramsLeagueId, paramSeason));
     }
-
     getDataTeams();
-  }, [League, Season]);
-
+  }, [paramsLeagueId, paramSeason]);
+  
   return (
     <BoxOfTeams>
       <h4>Times</h4>

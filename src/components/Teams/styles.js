@@ -63,6 +63,19 @@ export const FilterTeams = styled.ul`
     margin: 5px;
     cursor: pointer;
 
+    button {
+      display: flex;
+      font-size: 14px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      align-items: center;
+
+      &:focus {
+        filter: drop-shadow(0 0 0.2rem #000);
+      }
+    }
+
     &:hover {
       filter: drop-shadow(0 0 0.2rem #000);
     }

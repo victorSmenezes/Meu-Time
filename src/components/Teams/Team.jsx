@@ -27,12 +27,10 @@ export default function Team() {
         {teams?.map((team) => {
           return (
             <>
-              <li 
-              key={team.team.id}     
-              >
-                <button>{team.team.name}{' '}
+              <li key={team.id}>
+                <button>{team.name}{' '}
                 <Image
-                  src={team.team.logo}
+                  src={team.logo}
                   alt="team-logo"
                   width={35}
                   height={30}

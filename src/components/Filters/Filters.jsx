@@ -78,8 +78,8 @@ export default function Filters() {
           <option value="">Selecione um Líga</option>
           {leagues?.map((league) => {
             return (
-              <option id={league.league.id} key={league.league.id}>
-                {league.league.name}
+              <option id={league.id} key={league.id}>
+                {league.name}
               </option>
             );
           })}

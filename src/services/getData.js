@@ -33,7 +33,7 @@ export async function Listleagues(valueOfCountrie) {
       data: { response }
     } = await api.get(`leagues?country=${valueOfCountrie}`);
 
-    return response;
+    return response.map((TakeLeagues) => {return TakeLeagues.league})
   } catch (error) {
     console.error('Erro ao buscar as ligas:', error);
   }
@@ -46,7 +46,7 @@ export async function RequisitionOfTeams(League, Season) {
       data: { response }
     } = await api.get(`teams?league=${League}&season=${Season}`);
 
-    return response;
+    return response.map((TakeTeams) => {return TakeTeams.team})
   } catch (error) {
     console.error('Erro ao buscar os times:', error);
   }

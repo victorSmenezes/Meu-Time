@@ -10,7 +10,7 @@ import { useParamsContext } from '@/context/Params';
 export default function Team() {
   const [teams, setTeams] = useState();
 
-  let { paramsLeagueId, paramSeason } = useParamsContext()
+  let { paramsLeagueId, paramSeason, setParamTeamId } = useParamsContext()
 
   useEffect(() => {
     async function getDataTeams() {
@@ -18,6 +18,10 @@ export default function Team() {
     }
     getDataTeams();
   }, [paramsLeagueId, paramSeason]);
+
+  function takeTheTeamId(id) {
+    setParamTeamId(id);
+    }
 
   return (
     <BoxOfTeams>
@@ -27,7 +31,10 @@ export default function Team() {
         {teams?.map((team) => {
           return (
             <>
-              <li key={team.id}>
+              <li 
+              key={team.id} 
+              onClick={() => takeTheTeamId(team.id)}
+              >
                 <button>{team.name}{' '}
                 <Image
                   src={team.logo}

@@ -9,13 +9,15 @@ const ParamsProvider = ({ children }) => {
   const [paramsLeague, setParamsLeague] = useState('')
   const [paramsLeagueId, setParamsLeagueId] = useState('')
   const [paramSeason, setParamSeason] = useState('')
+  const [paramTeamId, setParamTeamId] = useState('')
 
   return (
     <ParamsContext.Provider value={{ 
       paramsCountry, setParamsCountry, 
       paramsLeague, setParamsLeague, 
       paramsLeagueId, setParamsLeagueId, 
-      paramSeason, setParamSeason
+      paramSeason, setParamSeason,
+      paramTeamId, setParamTeamId
       }}>
       {children}
     </ParamsContext.Provider>

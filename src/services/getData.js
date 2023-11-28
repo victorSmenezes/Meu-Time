@@ -51,3 +51,16 @@ export async function RequisitionOfTeams(League, Season) {
     console.error('Erro ao buscar os times:', error);
   }
 }
+
+//Players request
+export async function RequisitionOfPlayers(season, idTeam) {
+  try {
+    const { data: 
+     { response }
+  } = await api.get(`players?season=${season}&team=${idTeam}`)
+
+  return response.map((TakePlayers) => {return TakePlayers.player})
+  } catch (error) {
+    console.error('Erro ao buscar os jogadores:', error);
+  }
+}

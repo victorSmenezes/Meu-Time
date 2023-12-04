@@ -9,8 +9,14 @@ module.exports = {
         protocol: 'https',
         hostname: 'media-4.api-sports.io',
         port: '',
-        pathname: '/football/teams/**'
-      }
+        pathname: '/football/teams/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media-4.api-sports.io',
+        port: '',
+        pathname: '/football/players/**',
+      },
     ]
   }
 };

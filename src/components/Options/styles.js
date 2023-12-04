@@ -18,7 +18,7 @@ export const BoxOptions = styled.div`
   height: 36px;
   border-radius: 3px;
   border: none;
-  margin-bottom: 22px;
+  margin-bottom: ${props => props.isOpen ? '0' : '22px'};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   padding-left: 10px;
@@ -26,8 +26,9 @@ export const BoxOptions = styled.div`
   font-size: 13px;
 `;
 
-export const Title = styled.h3`
+export const Title = styled.h2`
   width: 100%;
+  font-size: 16px;
   height: 36px;
   display: flex;
   align-items: center;
@@ -37,7 +38,7 @@ export const ArrowDown = styled(MdKeyboardArrowDown)`
   width: 25px;
   height: 25px;
   cursor: pointer;
-  transform: ${(props) => (props.isOpen ? 'rotate(0)' : 'rotate(90deg)')};
+  transform: ${props => props.isOpen ? 'rotate(0)' : 'rotate(90deg)'};
   animation: transform 0.8s ease-in;
 `;
 

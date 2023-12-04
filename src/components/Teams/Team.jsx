@@ -25,7 +25,7 @@ export default function Team() {
 
   return (
     <BoxOfTeams>
-      <h4>Times</h4>
+      <h2>Times</h2>
       <hr />
       <FilterTeams>
         {teams?.map((team) => {

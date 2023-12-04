@@ -12,9 +12,10 @@ export const BoxOfTeams = styled.div`
   margin-right: 5%;
   margin-left: 5%;
 
-  h4 {
+  h2 {
     text-align: center;
     padding: 5px;
+    font-size: 18px;
   }
 
   hr {

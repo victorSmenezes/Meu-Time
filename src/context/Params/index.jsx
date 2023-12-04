@@ -5,11 +5,11 @@ import { createContext, useContext, useState } from 'react';
 const ParamsContext = createContext({});
 
 const ParamsProvider = ({ children }) => {
-  const [paramsCountry, setParamsCountry] = useState('')
-  const [paramsLeague, setParamsLeague] = useState('')
-  const [paramsLeagueId, setParamsLeagueId] = useState('')
-  const [paramSeason, setParamSeason] = useState('')
-  const [paramTeamId, setParamTeamId] = useState('')
+  const [paramsCountry, setParamsCountry] = useState()
+  const [paramsLeague, setParamsLeague] = useState()
+  const [paramsLeagueId, setParamsLeagueId] = useState()
+  const [paramSeason, setParamSeason] = useState()
+  const [paramTeamId, setParamTeamId] = useState()
 
   return (
     <ParamsContext.Provider value={{ 

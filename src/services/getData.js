@@ -28,6 +28,10 @@ export async function ListSeasons() {
 }
 
 export async function Listleagues(valueOfCountrie) {
+  if (valueOfCountrie == undefined){
+    
+    return
+  } else {
   try {
     const {
       data: { response }
@@ -38,9 +42,14 @@ export async function Listleagues(valueOfCountrie) {
     console.error('Erro ao buscar as ligas:', error);
   }
 }
+}
 
 // Team request
 export async function RequisitionOfTeams(League, Season) {
+  if (League == undefined && Season === undefined){
+    
+    return
+  } else {
   try {
     const {
       data: { response }
@@ -51,16 +60,22 @@ export async function RequisitionOfTeams(League, Season) {
     console.error('Erro ao buscar os times:', error);
   }
 }
+}
 
 //Players request
 export async function RequisitionOfPlayers(season, idTeam) {
+  if (season == undefined && idTeam == undefined){
+    
+    return
+  } else {
   try {
     const { data: 
      { response }
-  } = await api.get(`players?season=${season}&team=${idTeam}`)
+  } = await api.get(`players?season=${season}&team=${idTeam.toString()}`)
 
   return response.map((TakePlayers) => {return TakePlayers.player})
   } catch (error) {
     console.error('Erro ao buscar os jogadores:', error);
   }
+}
 }

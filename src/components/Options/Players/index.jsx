@@ -8,15 +8,15 @@ import Loading from "@/layout/Loading";
 
 export default function Players() {
   const [infoPlayers, setInfoPlayers] = useState()
-  let { paramSeason, paramTeamId } = useParamsContext()
+  let { paramSeason, paramsLeagueId, paramTeamId } = useParamsContext()
 
   useEffect(() => {
     async function ListOfPlayers() {
-      setInfoPlayers(await RequisitionOfPlayers(paramSeason, paramTeamId))
+      setInfoPlayers(await RequisitionOfPlayers(paramSeason, paramsLeagueId, paramTeamId))
     }
    
     ListOfPlayers()
-  }, [paramSeason, paramTeamId]);
+  }, [paramSeason, paramsLeagueId, paramTeamId]);
 
   return (
     <>

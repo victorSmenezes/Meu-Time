@@ -63,7 +63,7 @@ export async function RequisitionOfTeams(League, Season) {
 }
 
 //Players request
-export async function RequisitionOfPlayers(season, idTeam) {
+export async function RequisitionOfPlayers(season, League,idTeam) {
   if (season == undefined && idTeam == undefined){
     
     return
@@ -71,7 +71,7 @@ export async function RequisitionOfPlayers(season, idTeam) {
   try {
     const { data: 
      { response }
-  } = await api.get(`players?season=${season}&team=${idTeam.toString()}`)
+  } = await api.get(`players?season=${season}&league=${League}&team=${idTeam.toString()}`)
 
   return response.map((TakePlayers) => {return TakePlayers.player})
   } catch (error) {

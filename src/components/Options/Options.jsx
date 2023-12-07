@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Content, BoxOptions, ArrowDown, Title, BoxList } from './styles';
 import Players from './Players';
+import Formations from './Formations';
 
 export default function Options() {
   const [modalPlayers, setModalPlayers] = useState(false);
@@ -24,10 +25,10 @@ export default function Options() {
           <Players />
         </Content>
       )}
-
-      <BoxOptions>
+      {/*   */}      
+      <BoxOptions isOpen={modalPlayers}>
         <Title onClick={() => setModalFormation(true)}>
-          Formação mais usada na temporada
+          Formações mais usadas na temporada
         </Title>
         <ArrowDown
           onClick={() => setModalFormation(false)}
@@ -36,16 +37,17 @@ export default function Options() {
       </BoxOptions>
 
       {modalFormation && (
-        <Content setModalFormation={setModalFormation}>Formação1</Content>
+        <Content setModalFormation={setModalFormation}><Formations /></Content>
       )}
-
-      <BoxOptions>
+      {/*   */} 
+      <BoxOptions isOpen={modalPlayers}>
         <Title onClick={() => setModalTable(true)}>Tabela de Resultados</Title>
         <ArrowDown onClick={() => setModalTable(false)} isOpen={modalTable} />
       </BoxOptions>
 
       {modalTable && <Content setModalTable={setModalTable}>Tabela1</Content>}
-      <BoxOptions>
+      {/*   */} 
+      <BoxOptions isOpen={modalPlayers}>
         <Title onClick={() => setModalNumberOfGoal(true)}>
           Quantidade de gols marcados por tempo de jogo
         </Title>

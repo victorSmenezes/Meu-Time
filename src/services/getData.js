@@ -62,6 +62,25 @@ export async function RequisitionOfTeams(League, Season) {
 }
 }
 
+//Team statistics
+export async function TeamStatistics(League, idTeam, Season) {
+  if (League == undefined && idTeam === undefined && Season === undefined){
+    
+    return
+  } else {
+  try {
+    const {
+      data: { response }
+    } = await api.get(`teams/statistics?league=${League}&team=${idTeam}&season=${Season}`);
+
+    return {...response}
+  } catch (error) {
+    console.error('Erro ao buscar estatísticas dos times:', error);
+  }
+}
+}
+
+
 //Players request
 export async function RequisitionOfPlayers(season, League,idTeam) {
   if (season == undefined && idTeam == undefined){

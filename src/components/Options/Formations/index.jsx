@@ -15,7 +15,6 @@ function Formations() {
 
     Statistics()
   }, [paramsLeagueId, paramTeamId, paramSeason])
-  console.log(formations?.lineups);
 
   return (
     <>

@@ -80,10 +80,9 @@ export async function TeamStatistics(League, idTeam, Season) {
 }
 }
 
-
 //Players request
-export async function RequisitionOfPlayers(season, League,idTeam) {
-  if (season == undefined && idTeam == undefined){
+export async function RequisitionOfPlayers(season, League, idTeam) {
+  if (season == undefined && League == undefined && idTeam == undefined){
     
     return
   } else {

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Content, BoxOptions, ArrowDown, Title, BoxList } from './styles';
 import Players from './Players';
 import Formations from './Formations';
+import Table from './ResultsTable';
 
 export default function Options() {
   const [modalPlayers, setModalPlayers] = useState(false);
@@ -45,7 +46,7 @@ export default function Options() {
         <ArrowDown onClick={() => setModalTable(false)} isOpen={modalTable} />
       </BoxOptions>
 
-      {modalTable && <Content setModalTable={setModalTable}>Tabela1</Content>}
+      {modalTable && <Content setModalTable={setModalTable}><Table /></Content>}
       {/*   */} 
       <BoxOptions isOpen={modalPlayers}>
         <Title onClick={() => setModalNumberOfGoal(true)}>

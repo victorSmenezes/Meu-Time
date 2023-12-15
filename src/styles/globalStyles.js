@@ -4,7 +4,7 @@ import { Merriweather_Sans as Merriweather } from 'next/font/google';
 import { createGlobalStyle } from 'styled-components';
 
 const merriweather = Merriweather({
-  weight: ['400', '700'],
+  weight: ['400', '700', '800'],
   subsets: ['latin'],
   variable: '--font-merriweather'
 });

@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
  display: flex;
- padding: 20px;
+ padding-top: 20px;
  flex-wrap: wrap;
  gap: 10px;
- margin-left: 35px;
+ margin-left: 50px;
 `
 
 export const BoxPlayers = styled.div`

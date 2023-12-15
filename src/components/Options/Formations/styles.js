@@ -5,6 +5,7 @@ export const Containers = styled.div`
   justify-content: space-around;
   border-radius: 5px;
   flex-wrap: wrap;
+  padding-top: 20px;
 `
 
 export const Modal = styled.div`

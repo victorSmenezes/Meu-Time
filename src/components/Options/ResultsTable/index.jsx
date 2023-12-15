@@ -20,8 +20,9 @@ function Table() {
   const { fixtures } = results ?? {}
 
   return (
-    <Container>
-      {fixtures == undefined || 0 ? <Loading /> :
+    <>
+    {fixtures == undefined || 0 ? <Loading /> : 
+      <Container>
         <table>
           <thead>
             <tr>
@@ -62,8 +63,9 @@ function Table() {
             </tr>
           </tbody>
         </table>
-      }
-    </Container>
+      </Container>
+  }
+  </>   
   )
 }
 

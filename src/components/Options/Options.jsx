@@ -27,7 +27,7 @@ export default function Options() {
         </Content>
       )}
       {/*   */}      
-      <BoxOptions isOpen={modalPlayers}>
+      <BoxOptions isOpen={modalFormation}>
         <Title onClick={() => setModalFormation(true)}>
           Formações mais usadas na temporada
         </Title>
@@ -41,14 +41,14 @@ export default function Options() {
         <Content setModalFormation={setModalFormation}><Formations /></Content>
       )}
       {/*   */} 
-      <BoxOptions isOpen={modalPlayers}>
+      <BoxOptions isOpen={modalTable}>
         <Title onClick={() => setModalTable(true)}>Tabela de Resultados</Title>
         <ArrowDown onClick={() => setModalTable(false)} isOpen={modalTable} />
       </BoxOptions>
 
       {modalTable && <Content setModalTable={setModalTable}><Table /></Content>}
       {/*   */} 
-      <BoxOptions isOpen={modalPlayers}>
+      <BoxOptions isOpen={modalNumberOfGoals}>
         <Title onClick={() => setModalNumberOfGoal(true)}>
           Quantidade de gols marcados por tempo de jogo
         </Title>

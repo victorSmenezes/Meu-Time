@@ -47,20 +47,7 @@ export default function Options() {
       </BoxOptions>
 
       {modalTable && <Content setModalTable={setModalTable}><Table /></Content>}
-      {/*   */} 
-      <BoxOptions isOpen={modalNumberOfGoals}>
-        <Title onClick={() => setModalNumberOfGoal(true)}>
-          Quantidade de gols marcados por tempo de jogo
-        </Title>
-        <ArrowDown
-          onClick={() => setModalNumberOfGoal(false)}
-          isOpen={modalNumberOfGoals}
-        />
-      </BoxOptions>
-
-      {modalNumberOfGoals && (
-        <Content setModalNumberOfGoal={setModalNumberOfGoal}>Gols1</Content>
-      )}
+      {/*   */}
     </BoxList>
   );
 }

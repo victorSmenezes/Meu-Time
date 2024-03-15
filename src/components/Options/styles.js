@@ -18,7 +18,7 @@ export const BoxOptions = styled.div`
   height: 36px;
   border-radius: 3px;
   border: none;
-  margin-bottom: ${props => props.isOpen ? '0' : '22px'};
+  margin-bottom: ${props => props.isOpen ? '0' : '35px'};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   padding-left: 10px;

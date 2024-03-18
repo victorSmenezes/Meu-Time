@@ -25,6 +25,12 @@ export const ImageBall = styled(Image)`
 export const Container = styled.div`
   display: flex;
   margin-top: 50px;
+
+  @media (max-width: 430px) {
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+  }
 `;
 
 export const Footer = styled.footer`
@@ -39,8 +45,13 @@ export const Footer = styled.footer`
   bottom: 0;
 
   p {
-    font-size: 10px;
+    font-size: 12px;
     text-decoration: none;
+  }
+
+  @media (max-width: 430px) {
+   position: static;
+   margin-top: 35px;
   }
 `;
 export const Nav = styled.nav`

@@ -22,6 +22,10 @@ export const BoxOfTeams = styled.div`
     margin: 5px 0;
     border: 1px solid black;
   }
+
+  @media (max-width: 430px) {
+   margin: 15% 0;
+  }
 `;
 
 export const FilterTeams = styled.ul`

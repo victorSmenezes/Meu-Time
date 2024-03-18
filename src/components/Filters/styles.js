@@ -10,6 +10,10 @@ export const FilterBox = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin-left: 90px;
+
+  @media (max-width: 430px) {
+   margin-left: 0;
+  }
 `;
 export const Filter = styled.select`
   width: 85%;

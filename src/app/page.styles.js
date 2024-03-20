@@ -50,7 +50,6 @@ export const Footer = styled.footer`
   }
 
   @media (max-width: 430px) {
-   position: static;
    margin-top: 35px;
   }
 `;

@@ -10,6 +10,7 @@ export const BoxList = styled.div`
 
   @media (max-width: 430px) {
    width: 20em;
+   margin-bottom: 75px;
   }
 `;
 

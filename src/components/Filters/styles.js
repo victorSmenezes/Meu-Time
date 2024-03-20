@@ -4,7 +4,7 @@ export const FilterBox = styled.div`
   width: 200px;
   height: 190px;
   background: #d9d9d9;
-  border-radius: 25px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@ export const Filter = styled.select`
   width: 85%;
   height: 35px;
   margin-bottom: 10px;
-  border-radius: 30px;
+  border-radius: 5px;
   text-align: center;
   cursor: pointer;
   font-size: 11px;

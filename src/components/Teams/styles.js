@@ -7,7 +7,7 @@ export const BoxOfTeams = styled.div`
   height: fit-content;
   max-height: 650px;
   background: #d9d9d9;
-  border-radius: 25px;
+  border-radius: 5px;
   padding: 10px;
   margin-right: 5%;
   margin-left: 5%;

@@ -3,7 +3,7 @@ import { PiWarningCircleThin } from 'react-icons/pi';
 import styled from 'styled-components';
 
 export const BoxOfTeams = styled.div`
-  width: 225px;
+  width: 245px;
   height: fit-content;
   max-height: 650px;
   background: #d9d9d9;
@@ -43,17 +43,29 @@ export const FilterTeams = styled.ul`
 
   &::-webkit-scrollbar {
     width: 8px;
+
+    @media (max-width: 430px) {
+      width: 16px;
+    }
   }
 
   &::-webkit-scrollbar-track {
     background: #7b7b7b;
     border-radius: 10px;
+
+    @media (max-width: 430px) {
+     border-radius: 5px;
+    }
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: white;
     border-radius: 20px;
     border: 2px solid gray;
+
+    @media (max-width: 430px) {
+      border-radius: 5px;
+    }
   }
 
   hr {

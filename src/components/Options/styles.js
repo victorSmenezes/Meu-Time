@@ -7,6 +7,10 @@ export const BoxList = styled.div`
   height: fit-content;
   background: #d9d9d9;
   border-radius: 3px;
+
+  @media (max-width: 430px) {
+   width: 20em;
+  }
 `;
 
 export const BoxOptions = styled.div`
@@ -32,6 +36,10 @@ export const Title = styled.h2`
   height: 36px;
   display: flex;
   align-items: center;
+
+  @media (max-width: 430px) {
+   font-size: 14px;
+  }
 `;
 
 export const ArrowDown = styled(MdKeyboardArrowDown)`

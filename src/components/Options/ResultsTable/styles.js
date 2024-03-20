@@ -7,6 +7,10 @@ export const Container = styled.div`
 
   table {
     width: 65%;
+
+    @media (max-width: 430px) {
+      width: 95%;
+    }
   }
 
   table, td ,th {
@@ -21,6 +25,10 @@ export const Container = styled.div`
       font-size: 18px;
       font-weight: 800;
       color: #2E404B;
+
+      @media (max-width: 430px) {
+       font-size: 14px;
+      }
     }
   }
   
@@ -35,7 +43,11 @@ export const Container = styled.div`
     font-size: 16px;
     font-weight: 400;
     color: #2F404F;
-    padding: 4px
+    padding: 4px;
+
+    @media (max-width: 430px) {
+      font-size: 14px;
+    }
   }
 
   td {

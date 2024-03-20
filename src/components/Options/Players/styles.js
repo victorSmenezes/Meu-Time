@@ -6,6 +6,11 @@ export const Container = styled.div`
  flex-wrap: wrap;
  gap: 10px;
  margin-left: 50px;
+
+ @media (max-width: 430px) {
+   margin-left: auto;
+   justify-content: center;
+  }
 `
 
 export const BoxPlayers = styled.div`
